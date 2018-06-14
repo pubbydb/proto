@@ -1,9 +1,43 @@
 syntax = "proto3";
 
 package pubbydb_internal_proto;
-import "proto/value.proto";
 
 message Record {
     uint64 id = 1;
     Value value = 2;
+}
+
+message Value {
+    ValueType type = 1;
+
+    oneof value {
+        bytes as_bytes = 2;
+        uint32 as_uint32 = 3;
+        uint64 as_uint64 = 4;
+        int32 as_int32 = 5;
+        int64 as_int64 = 6;
+        sint32 as_sint32 = 7;
+        sint64 as_sint64 = 8;
+        bool as_bool = 9;
+        float as_float = 10;
+        double as_double = 11;
+    }
+
+    enum ValueType {
+        UNKNOWN = 0;
+        UINT8 = 1;
+        UINT16 = 2;
+        UINT32 = 3;
+        UINT64 = 4;
+        INT8 = 5;
+        INT16 = 6;
+        INT32 = 7;
+        INT64 = 8;
+        STRING = 9;
+        BOOL = 10;
+        SINT32 = 11;
+        SINT64 = 12;
+        FLOAT = 13;
+        DOUBLE = 14;
+    }
 }
