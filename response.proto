@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+package pubbydb_proto;
+
+message PubbyResponse {
+    int64 request_id = 1;
+    PubbyResponseType type = 2;
+    string error_message = 3;
+
+    enum PubbyResponseType {
+        UNKNOWN = 0;
+        ERROR = 1;
+    }
+}
