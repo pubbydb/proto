@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+package pubbydb_internal_proto;
+import "proto/value.proto";
+
+message Record {
+    uint64 id = 1;
+    Value value = 2;
+}
