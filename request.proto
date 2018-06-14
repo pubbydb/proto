@@ -1,1 +1,13 @@
 syntax = "proto3";
+
+package pubbydb_proto;
+
+message PubbyRequest {
+    int64 id = 1;
+    PubbyRequestType type = 2;
+
+    enum PubbyRequestType {
+        UNKNOWN = 0;
+    }
+
+}
