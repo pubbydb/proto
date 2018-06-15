@@ -15,6 +15,8 @@ target_include_directories(${PUBBYDB_PROTO_LIBRARY} PUBLIC ${PROTOBUF_INCLUDE_DI
 
 # Include the path for each Protobuf include
 macro(target_include_pubbydb_protobuf target)
+    target_include_directories(${target} PUBLIC ${PROTOBUF_INCLUDE_DIR})
+    target_link_libraries(${target} ${PROTOBUF_LIBRARY})
     foreach (PROTO_FILE ${PUBBYDB_PROTO_HEADERS})
         get_filename_component(PROTO_DIR ${PROTO_FILE} DIRECTORY)
         target_include_directories(${target} PUBLIC ${PROTO_DIR})
